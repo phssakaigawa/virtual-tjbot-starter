@@ -37,6 +37,7 @@ function prepopulateFlows(resolve) {
                     var flow = fs.readFileSync(__dirname + "/defaults/flow.json", "utf8");
                     var flows = JSON.parse(flow);
                     util.log("[cloudantStorage] Installing default flow");
+                    util.log("here: " + __dirname + "/defaults/flow.json");
                     promises.push(cloudantStorage.saveFlows(flows));
                 } catch (err2) {
                     util.log("[cloudantStorage] Failed to save default flow");
@@ -74,7 +75,7 @@ var cloudantStorage = {
         settings = _settings.cloudantService || {};
         if (!settings) {
             var err = Promise.reject("cloudantStorage settings not found");
-            err.catch(err => {});
+            err.catch(err => { });
             return err;
         }
         // This is resulting in Access Denined errors when using IAM
