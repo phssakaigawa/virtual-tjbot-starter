@@ -46,6 +46,9 @@ stages:
           ibmcloud resource service-instance-create "TJBot_TextToSpeech" text-to-speech lite jp-tok
           ibmcloud resource service-instance-create "TJBot_VisualRecognition" watson-vision-combined lite us-south
           ibmcloud resource service-instance-create "TJBot_Assistant" conversation free jp-tok
+          echo ----------------------
+          ls ./
+          echo ----------------------
 
           sleep 120
 
